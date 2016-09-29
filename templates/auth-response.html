@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Authentication</title>
+</head>
+<body>
+    {% if trickery %}
+        you can't beat the system man
+    {% elif login_good %}
+        You have logged in successfully. Have this as a reward. <br />
+        <img src="https://valuesbasedbusiness.files.wordpress.com/2015/05/gold-star.png?w=490" alt="log in star" />
+    {% else %}
+        The username and/or password was wrong.<br />
+        <a href='/'>Try again</a>
+    {% endif %}
+</body>
+</html>
