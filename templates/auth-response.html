@@ -6,12 +6,21 @@
 <body>
     {% if trickery %}
         you can't beat the system man
-    {% elif login_good %}
-        You have logged in successfully. Have this as a reward. <br />
-        <img src="https://valuesbasedbusiness.files.wordpress.com/2015/05/gold-star.png?w=490" alt="log in star" />
     {% else %}
-        The username and/or password was wrong.<br />
-        <a href='/'>Try again</a>
+        {% if log and pw %}
+            You have logged in successfully. Have this as a reward. <br />
+            <img src="https://valuesbasedbusiness.files.wordpress.com/2015/05/gold-star.png?w=490" alt="log in star" />
+            {% if new %}
+                <br />Also, you have registered.
+            {% endif %}
+        {% else %}
+            {% if new %}
+                Username has already been registered.
+            {% else %}
+                The {{ 'username' if not log else 'password' }} was wrong.<br />
+            {% endif %}
+            <a href='/'>Try again</a>
+        {% endif %}
     {% endif %}
 </body>
 </html>
