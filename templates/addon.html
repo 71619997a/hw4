@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Authentication</title>
-</head>
 <body>
+    <br>
     {% if trickery %}
         you can't beat the system man
     {% else %}
         {% if log and pw %}
-            You have logged in successfully. Have this as a reward. <br />
-            <img src="https://valuesbasedbusiness.files.wordpress.com/2015/05/gold-star.png?w=490" alt="log in star" />
+            Good job typing your password!
             {% if new %}
                 <br />Also, you have registered.
             {% endif %}
@@ -19,7 +16,6 @@
             {% else %}
                 The {{ 'username' if not log else 'password' }} was wrong.<br />
             {% endif %}
-            <a href='/'>Try again</a>
         {% endif %}
     {% endif %}
 </body>
