@@ -4,10 +4,14 @@
     <title>Login page</title>
 </head>
 <body>
+    {% if not logged %}
     <form action="authenticate" method="post">
         <input type="text" name="user" placeholder="Username" />
         <input type="password" name="pass" placeholder="Password" />
         <input type="submit" name="action" value="Login" />
         <input type="submit" name="action" value="Register" />
     </form>
+    {% else %}
+    Welcome, {{ login }}!
+    {% endif %}
 </body>

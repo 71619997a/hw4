@@ -1,11 +1,11 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, session, redirect, url_for
 from hashlib import sha256
 app = Flask(__name__)
-
+app.secret_key = 'wigjhuv;osfdodsfogvsn b.  ZUiv  '
 
 @app.route('/')
 def loginpage():
-    return render_template('home.html')
+    return render_template('home.html', logged='login' in session)
 
 
 @app.route('/authenticate', methods=['GET', 'POST'])
